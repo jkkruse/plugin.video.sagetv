@@ -852,7 +852,7 @@ def addChannelDir(name,url,mode,iconimage,channeldescription):
 def unicodeToStr(obj):
     t = obj
     if(t is unicode):
-        return obj.encode(DEFAULT_CHARSET)
+        return obj.encode('utf-8')
     elif(t is list):
         for i in range(0, len(obj)):
             obj[i] = unicodeToStr(obj[i])
@@ -861,7 +861,7 @@ def unicodeToStr(obj):
         for k in obj.keys():
             v = obj[k]
             del obj[k]
-            obj[k.encode(DEFAULT_CHARSET)] = unicodeToStr(v)
+            obj[k.encode('utf-8')] = unicodeToStr(v)
         return obj
     else:
         return obj # leave numbers and booleans alone
