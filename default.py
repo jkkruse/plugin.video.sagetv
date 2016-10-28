@@ -11,6 +11,9 @@ if sys.version_info >=  (2, 7):
     print "****XBMC python version (sys.version_info)=" + str(sys.version_info) + "****"
     print "****using import json as _json****"
 else:
+    spi = xbmcaddon.Addon ('script.module.simplejson')
+    path = spi.getAddonInfo('path')
+    sys.path.append (xbmc.translatePath( os.path.join( path) ))
     import simplejson as _json 
     print "****XBMC python version (sys.version_info)=" + str(sys.version_info) + "****"
     print "****using import simplejson as _json****"
